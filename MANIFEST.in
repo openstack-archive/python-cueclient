@@ -1,0 +1,13 @@
+include AUTHORS
+include ChangeLog
+include cueclient/versioninfo
+include *.txt *.ini *.cfg *.rst *.md
+recursive-include cueclient/resources *
+recursive-include tools *
+
+exclude .gitignore
+exclude .gitreview
+exclude *.sublime-project
+
+global-exclude *.pyc
+
