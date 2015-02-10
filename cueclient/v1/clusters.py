@@ -13,24 +13,26 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations
 # under the License.
-from cueclient import client
+from cueclient import controller
 
 
-class ClusterController(client.Controller):
-    def create(self, name, nic, description=None, flavor='m1.medium',
-               volume_size=1024):
+class ClusterController(controller.Controller):
+    def create(self, name, nic, flavor, volume_size, description=None):
         data = {
+            "network_id": nic,
             "name": name,
+            "flavor": flavor,
+            "size": volume_size
         }
 
         url = self.build_url("/clusters")
 
-        return self._post(url, data=data)
+        return self._post(url, json=data)
 
     def list(self, marker=None, limit=None, params=None):
         url = self.build_url("/clusters", marker, limit, params)
 
-        return self._get(url)
+        return self._get(url, "clusters")
 
     def get(self, cluster_id):
         url = self.build_url("/clusters/%s" % cluster_id)
