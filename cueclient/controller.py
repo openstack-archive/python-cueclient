@@ -19,7 +19,6 @@ from urllib import urlencode
 
 import six
 
-
 @six.add_metaclass(abc.ABCMeta)
 class Controller(object):
 
