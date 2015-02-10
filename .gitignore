@@ -21,3 +21,5 @@ doc/build/*
 dist
 cueclient/versioninfo
 .testrepository
+.idea/
+*.DS_Store

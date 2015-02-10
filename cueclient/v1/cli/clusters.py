@@ -56,7 +56,7 @@ class ShowClusterCommand(show.ShowOne):
         return parser
 
     def take_action(self, parsed_args):
-        client = self.app.client_manager.dns
+        client = self.app.client_manager.mq
 
         data = client.clusters.get(parsed_args.id)
 
@@ -70,22 +70,22 @@ class CreateClusterCommand(show.ShowOne):
         parser = super(CreateClusterCommand, self).get_parser(prog_name)
 
         parser.add_argument('--name', help="Cluster Name", required=True)
-        parser.add_argument('--description', help="Description")
         parser.add_argument('--nic', help="Network to place nodes on",
                             required=True)
-        parser.add_argument('--flavor', help="Flavor to use.")
-        parser.add_argument('--volume_size', help="Volume size", default=1024)
+        parser.add_argument('--flavor', help="Flavor to use.", required=True)
+        parser.add_argument('--size', help="Number of nodes", required=True)
+        parser.add_argument('--volume_size', help="Volume size")
 
         return parser
 
     def take_action(self, parsed_args):
-        client = self.app.client_manager.dns
+        client = self.app.client_manager.mq
 
         data = client.clusters.create(
-            parsed_args.name,
-            description=parsed_args.description,
+            name=parsed_args.name,
             nic=parsed_args.nic,
             flavor=parsed_args.flavor,
+            size=parsed_args.size,
             volume_size=parsed_args.volume_size)
         return zip(*sorted(six.iteritems(data)))
 
@@ -109,7 +109,7 @@ class SetClusterCommand(command.Command):
         return parser
 
     def take_action(self, parsed_args):
-        client = self.app.client_manager.dns
+        client = self.app.client_manager.mq
 
         data = {}
 
@@ -146,6 +146,6 @@ class DeleteClusterCommand(command.Command):
         return parser
 
     def take_action(self, parsed_args):
-        client = self.app.client_manager.dns
+        client = self.app.client_manager.mq
         client.clusters.delete(parsed_args.id)
         LOG.info('Cluster %s was deleted', parsed_args.id)
