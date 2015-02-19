@@ -29,7 +29,7 @@ LOG = logging.getLogger(__name__)
 class ListClustersCommand(lister.Lister):
     """List Clusters"""
 
-    columns = ['id', 'name']
+    columns = ['id', 'name', 'status']
 
     def get_parser(self, prog_name):
         parser = super(ListClustersCommand, self).get_parser(prog_name)
@@ -47,7 +47,6 @@ class ListClustersCommand(lister.Lister):
 
 class ShowClusterCommand(show.ShowOne):
     """Show Cluster"""
-
     def get_parser(self, prog_name):
         parser = super(ShowClusterCommand, self).get_parser(prog_name)
 
@@ -60,7 +59,7 @@ class ShowClusterCommand(show.ShowOne):
 
         data = client.clusters.get(parsed_args.id)
 
-        return zip(*sorted(six.iteritems(data)))
+        return zip(*sorted(six.iteritems(data['cluster'])))
 
 
 class CreateClusterCommand(show.ShowOne):
@@ -87,7 +86,8 @@ class CreateClusterCommand(show.ShowOne):
             flavor=parsed_args.flavor,
             size=parsed_args.size,
             volume_size=parsed_args.volume_size)
-        return zip(*sorted(six.iteritems(data)))
+
+        return zip(*sorted(six.iteritems(data['cluster'])))
 
 
 class SetClusterCommand(command.Command):
