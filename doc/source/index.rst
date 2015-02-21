@@ -11,6 +11,10 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
+   getting-started
+   command-line
+   python-bindings
+   contributing
 
 
 Indices and tables
