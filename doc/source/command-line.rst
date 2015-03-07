@@ -46,7 +46,7 @@ Required fields for 'create' : name, network id , flavor and size.
 
 .. code-block:: shell-session
 
-    $ cue cluster create --name cluster_04 --nic 3dd26c0b-03f2-4d2e-ae87-c02d7f33c788 --flavor 2 --size 3
+    (openstack) cue cluster create --name cluster_04 --nic 3dd26c0b-03f2-4d2e-ae87-c02d7f33c788 --flavor 2 --size 3
     +-------------+--------------------------------------+
     | Field       | Value                                |
     +-------------+--------------------------------------+
@@ -70,7 +70,7 @@ Required field for 'show' : cluster-id
 .. code-block:: shell-session
 
 
-    $ cue cluster show 06d3c0e4-4972-4ca9-91c1-373b1c74e8e1
+    (openstack) cue cluster show 06d3c0e4-4972-4ca9-91c1-373b1c74e8e1
     +-------------+--------------------------------------+
     | Field       | Value                                |
     +-------------+--------------------------------------+
@@ -93,14 +93,14 @@ Required field for 'delete' : cluster-id
 
 .. code-block:: shell-session
 
-    $ cue cluster delete 06d3c0e4-4972-4ca9-91c1-373b1c74e8e1
+    (openstack) cue cluster delete 06d3c0e4-4972-4ca9-91c1-373b1c74e8e1
 
 Cluster List
 ------------
 
 .. code-block:: shell-session
 
-    $ cue cluster list
+    (openstack) cue cluster list
     +--------------------------------------+-------------+----------+--------+------+
     | id                                   | name        | status   | flavor | size |
     +--------------------------------------+-------------+----------+--------+------+
