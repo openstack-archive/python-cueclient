@@ -1,8 +1,8 @@
-===========================
+=====================
 Cue Command Line Tool
-===========================
+=====================
 
-The python-cueclient is a command line tool for accessing Cue API.
+The python-cueclient can be used as a command line tool for accessing Cue API.
 
 Credentials
 -----------

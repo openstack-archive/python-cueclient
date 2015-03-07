@@ -21,6 +21,8 @@ Getting Started
 
 .. _Development Environment:
 
+The python-cueclient can be used either as a command line tool or as a binding to access Cue.
+
 
 Installing Cue Client from source
 =================================
@@ -57,3 +59,15 @@ Installing Cue Client from source
    $ pip install -r requirements.txt -r test-requirements.txt
    $ python setup.py develop
 
+
+Installation to use as Command Line Tool
+----------------------------------------
+4. To access the shell for cue client 'python-openstackclient' has to be installed.
+
+::
+
+   $ pip install python-openstackclient
+
+
+.. note::
+   This step can be skipped if you choose to use python-cueclient as only a binding to Cue API.
