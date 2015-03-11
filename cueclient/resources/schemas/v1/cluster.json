@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "name": "Cluster",
+  "title": "Cluster",
+  "type" : "object",
+
+  "properties": {
+        "id": {
+          "type": "string",
+          "description": "Cluster Identifier",
+          "pattern": "^([0-9a-fA-F]){8}-([0-9a-fA-F]){4}-([0-9a-fA-F]){4}-([0-9a-fA-F]){4}-([0-9a-fA-F]){12}$"
+        },
+        "name": {
+          "type": "string",
+          "description": "Cluster name",
+          "required": true
+        },
+        "network_id": {
+          "type": "string",
+          "description": "Network Identifier",
+          "required": true
+        },
+        "status": {
+          "type": "string",
+          "description": "Cluster status"
+        },
+        "created_at": {
+          "type": "string",
+          "description": "Date and time of cluster creation",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "description": "Date and time of cluster update",
+          "format": "date-time"
+        },
+        "end_points": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "description": "Cluster endpoints"
+        },
+        "flavor": {
+          "type": "string",
+          "description": "Cluster flavor",
+          "required": true
+        },
+        "size": {
+          "type": "integer",
+          "description": "Cluster size",
+          "required": true
+        },
+        "volume_size": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "description": "Cluster volume"
+        }
+      },
+
+  "additionalProperties": false
+}

@@ -57,8 +57,7 @@ class TestCreateCluster(base.TestCueBase):
             ('flavor', self.cluster_flavor),
             ('size', self.cluster_size)
         ]
-        response = {"cluster": {
-                    "id": "222",
+        response = {"id": "222",
                     "project_id": "test",
                     "network_id": self.cluster_network_id,
                     "name": self.cluster_name,
@@ -69,7 +68,7 @@ class TestCreateCluster(base.TestCueBase):
                     "deleted": "0",
                     "created_at": "2015-02-04 00:35:02",
                     "updated_at": "2015-02-04 00:35:02",
-                    "deleted_at": ""}}
+                    "deleted_at": ""}
 
         mocker = mock.Mock(return_value=response)
         self.app.client_manager.mq.clusters.create = mocker
@@ -162,7 +161,7 @@ class TestShowCluster(base.TestCueBase):
         """test show cluster with correct cluster id"""
         cluster_id = 'e531f2b3-3d97-42c0-b3b5-b7b6ab532018'
 
-        response = {"cluster": {
+        response = {
             "id": cluster_id,
             "project_id": "test",
             "network_id": "26477575",
@@ -170,7 +169,7 @@ class TestShowCluster(base.TestCueBase):
             "status": "BUILDING",
             "flavor": "1",
             "size": "2",
-            "volume_size": "1024"}
+            "volume_size": "1024"
         }
 
         arglist = [cluster_id]

@@ -12,7 +12,10 @@
 #   License for the specific language governing permissions and limitations
 #   under the License.
 #
+import json
 import os
+
+import pkg_resources
 
 
 def env(*vars, **kwargs):
@@ -50,3 +53,32 @@ def get_item_properties(item, fields, mixed_case_fields=[], formatters={}):
         else:
             row.append(data)
     return tuple(row)
+
+
+def resource_string(*args, **kwargs):
+    """Return specified resource as a string"""
+    if len(args) == 0:
+        raise ValueError()
+
+    package = kwargs.pop('package', None)
+
+    if not package:
+        package = 'cueclient'
+
+    resource_path = os.path.join('resources', *args)
+
+    if not pkg_resources.resource_exists(package, resource_path):
+        # TODO(ap): add exceptions
+        # raise exceptions.ResourceNotFound('Could not find the requested '
+        # 'resource: %s' % resource_path)
+        pass
+
+    return pkg_resources.resource_string(package, resource_path)
+
+
+def load_schema(version, name, package=None):
+    """Load json schema from resources"""
+    schema_string = resource_string('schemas', version, '%s.json' % name,
+                                    package=package)
+
+    return json.loads(schema_string)
