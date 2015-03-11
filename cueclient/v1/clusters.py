@@ -14,6 +14,10 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 from cueclient import controller
+from cueclient import utils
+from cueclient import warlock
+
+Cluster = warlock.model_factory(utils.load_schema('v1', 'cluster'))
 
 
 class ClusterController(controller.Controller):
@@ -25,20 +29,20 @@ class ClusterController(controller.Controller):
             "size": size,
             "volume_size": volume_size
         }
-
         url = self.build_url("/clusters")
 
-        return self._post(url, json=data)
+        return Cluster(self._post(url, json=data)['cluster'])
 
     def list(self, marker=None, limit=None, params=None):
         url = self.build_url("/clusters", marker, limit, params)
 
-        return self._get(url, "clusters")
+        response = self._get(url, "clusters")
+        return [Cluster(i) for i in response]
 
     def get(self, cluster_id):
         url = self.build_url("/clusters/%s" % cluster_id)
 
-        return self._get(url)
+        return Cluster(self._get(url)['cluster'])
 
     def update(self, cluster_id, values):
         data = {
