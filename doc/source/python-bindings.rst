@@ -32,15 +32,14 @@ the bindings.
     # Create an instance of the client
     cue_client = client.Client(session=session)
 
-    # Cluster List
+    # Cluster List - returns list of cluster objects
     list_response = cue_client.clusters.list()
 
    # Iterate the list, printing some useful information
     for cluster in list_response:
 
         print "Cluster ID: %s \t Name: %s \t NetworkId: %s \t Flavor: %s \t Size: %s" % \
-            (cluster['id'], cluster['name'], cluster['network_id'],
-             cluster['flavor'], cluster['size'])
+               (cluster.id, cluster.name, cluster.network_id, cluster.flavor, cluster.size)
 
 And the output this program might produce:
 

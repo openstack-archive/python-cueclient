@@ -59,7 +59,7 @@ class ShowClusterCommand(show.ShowOne):
 
         data = client.clusters.get(parsed_args.id)
 
-        return zip(*sorted(six.iteritems(data['cluster'])))
+        return zip(*sorted(six.iteritems(data)))
 
 
 class CreateClusterCommand(show.ShowOne):
@@ -87,7 +87,7 @@ class CreateClusterCommand(show.ShowOne):
             size=parsed_args.size,
             volume_size=parsed_args.volume_size)
 
-        return zip(*sorted(six.iteritems(data['cluster'])))
+        return zip(*sorted(six.iteritems(data)))
 
 
 class SetClusterCommand(command.Command):
