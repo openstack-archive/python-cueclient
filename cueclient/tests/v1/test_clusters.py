@@ -34,7 +34,7 @@ class TestListClusters(base.TestCueBase):
         parsed_args = self.check_parser(cmd, arglist, verifylist)
         result = cmd.take_action(parsed_args)
 
-        self.assertEqual(['id', 'name', 'status'], result[0])
+        self.assertEqual(['id', 'name', 'status', 'end_points'], result[0])
 
 
 class TestCreateCluster(base.TestCueBase):

@@ -29,7 +29,7 @@ LOG = logging.getLogger(__name__)
 class ListClustersCommand(lister.Lister):
     """List Clusters"""
 
-    columns = ['id', 'name', 'status']
+    columns = ['id', 'name', 'status', 'end_points']
 
     def get_parser(self, prog_name):
         parser = super(ListClustersCommand, self).get_parser(prog_name)
