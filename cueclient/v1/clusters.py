@@ -33,7 +33,7 @@ class ClusterController(controller.Controller):
         }
         url = self.build_url("/clusters")
 
-        return Cluster(self._post(url, json=data)['cluster'])
+        return Cluster(self._post(url, json=data))
 
     def list(self, marker=None, limit=None, params=None):
         """List Clusters"""
@@ -46,7 +46,7 @@ class ClusterController(controller.Controller):
         """Show Cluster"""
         url = self.build_url("/clusters/%s" % cluster_id)
 
-        return Cluster(self._get(url)['cluster'])
+        return Cluster(self._get(url))
 
     def update(self, cluster_id, values):
         data = {
