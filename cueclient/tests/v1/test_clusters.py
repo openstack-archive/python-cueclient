@@ -40,7 +40,7 @@ class TestListClusters(base.TestCueBase):
 class TestCreateCluster(base.TestCueBase):
 
     cluster_name = "test_Cluster"
-    cluster_network_id = "111222333445"
+    cluster_network_id = "9d6708ee-ea48-4e78-bef6-b50b48405091"
     cluster_flavor = "1"
     cluster_size = "2"
 
@@ -59,7 +59,7 @@ class TestCreateCluster(base.TestCueBase):
         ]
         response = {"id": "222",
                     "project_id": "test",
-                    "network_id": self.cluster_network_id,
+                    "network_id": [self.cluster_network_id],
                     "name": self.cluster_name,
                     "status": "BUILDING",
                     "flavor": self.cluster_flavor,
@@ -82,8 +82,8 @@ class TestCreateCluster(base.TestCueBase):
                      'updated_at', 'volume_size'),
                     ('2015-02-04 00:35:02', '0', '', '1',
                      '222', 'test_Cluster',
-                     '111222333445', 'test', '2', 'BUILDING',
-                     '2015-02-04 00:35:02', '1024')]
+                    ['9d6708ee-ea48-4e78-bef6-b50b48405091'], 'test', '2',
+                     'BUILDING', '2015-02-04 00:35:02', '1024')]
 
         self.assertEqual(filtered, result)
 
@@ -164,7 +164,7 @@ class TestShowCluster(base.TestCueBase):
         response = {
             "id": cluster_id,
             "project_id": "test",
-            "network_id": "26477575",
+            "network_id": ["9d6708ee-ea48-4e78-bef6-b50b48405091"],
             "name": "test_cluster",
             "status": "BUILDING",
             "flavor": "1",
@@ -186,8 +186,8 @@ class TestShowCluster(base.TestCueBase):
         filtered = [('flavor', 'id', 'name', 'network_id', 'project_id',
                      'size', 'status', 'volume_size'),
                     ('1', 'e531f2b3-3d97-42c0-b3b5-b7b6ab532018',
-                     'test_cluster', '26477575', 'test', '2',
-                    'BUILDING', '1024')]
+                     'test_cluster', ['9d6708ee-ea48-4e78-bef6-b50b48405091'],
+                     'test', '2', 'BUILDING', '1024')]
 
         self.assertEqual(filtered, result)
 

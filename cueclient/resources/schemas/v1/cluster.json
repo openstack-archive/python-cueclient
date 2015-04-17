@@ -16,7 +16,7 @@
           "required": true
         },
         "network_id": {
-          "type": "string",
+          "type": "array",
           "description": "Network Identifier",
           "required": true
         },
