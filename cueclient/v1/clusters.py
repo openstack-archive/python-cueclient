@@ -25,7 +25,7 @@ class ClusterController(controller.Controller):
     def create(self, name, nic, flavor, size, volume_size):
         """Create Cluster"""
         data = {
-            "network_id": nic,
+            "network_id": nic.split(","),
             "name": name,
             "flavor": flavor,
             "size": size,
