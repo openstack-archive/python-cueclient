@@ -33,7 +33,7 @@ class TestCueBase(testtools.TestCase):
         # Build up a fake app
         self.app = mock.Mock()
         self.app.client_manager = mock.Mock()
-        self.app.client_manager.mq = cs
+        self.app.client_manager.mb = cs
 
     def check_parser(self, cmd, args, verify_args):
         """Test for parsing arguments"""
