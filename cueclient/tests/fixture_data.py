@@ -16,7 +16,7 @@ from six.moves.urllib import parse
 
 from cueclient.v1 import client
 
-MESSAGE_QUEUE_URL = 'http://message.queue'
+MESSAGE_BROKER_URL = 'http://message.broker'
 
 
 class V1(fixtures.Fixture):
@@ -85,10 +85,10 @@ class V1(fixtures.Fixture):
                                    headers=self.json_headers)
 
         self.client = client.Client(session=session.Session())
-        self.client.session.endpoint_override = MESSAGE_QUEUE_URL
+        self.client.session.endpoint_override = MESSAGE_BROKER_URL
 
     def url(self, *args, **kwargs):
-        url_args = [MESSAGE_QUEUE_URL]
+        url_args = [MESSAGE_BROKER_URL]
 
         if self.base_url:
             url_args.append(self.base_url)

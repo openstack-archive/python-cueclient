@@ -6,19 +6,19 @@ cue
 SYNOPSIS
 ========
 
-  `cue` [options] <command> [command-options]
+  `message-broker` [options] <command> [command-options]
 
-  `cue help`
+  `message-broker help`
 
-  `cue help` <command>
+  `message-broker help` <command>
 
 
 DESCRIPTION
 ===========
 
-`cue` is a command line client for controlling OpenStack Cue, the messaging service.
+`message-broker` is a command line client for controlling OpenStack Cue, the message broker provisioning service.
 
-Before you can issue commands with `cue`, you must ensure that your
+Before you can issue commands with `message-broker`, you must ensure that your
 environment contains the necessary variables so that you can prove to the CLI
 who you are and what credentials you have to issue the commands.
 
@@ -27,28 +27,28 @@ OPTIONS
 
 To get a list of available commands and options run::
 
-    cue help
+    message-broker help
 
 To get usage and options of a command run::
 
-    cue help <command>
+    message-broker help <command>
 
 EXAMPLES
 ========
 
 Get information about cluster create command::
 
-    help cue cluster create
+    help message-broker cluster create
 
 List available clusters::
 
-    help cue cluster list
+    help message-broker cluster list
 
 View cluster information::
 
-    help cue cluster show
+    help message-broker cluster show
 
 Delete clusters::
 
-    help cue cluster delete
+    help message-broker cluster delete
 

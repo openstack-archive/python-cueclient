@@ -21,7 +21,7 @@ from cueclient import version
 
 class Client(object):
     def __init__(self, region_name=None, endpoint_type='publicURL',
-                 extensions=None, service_type='message_queue',
+                 extensions=None, service_type='message-broker',
                  service_name=None, http_log_debug=False, session=None,
                  auth=None):
         self.session = adapter.Adapter(
