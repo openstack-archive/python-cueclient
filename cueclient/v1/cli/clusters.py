@@ -37,7 +37,7 @@ class ListClustersCommand(lister.Lister):
         return parser
 
     def take_action(self, parsed_args):
-        client = self.app.client_manager.mq
+        client = self.app.client_manager.mb
 
         data = client.clusters.list()
 
@@ -55,7 +55,7 @@ class ShowClusterCommand(show.ShowOne):
         return parser
 
     def take_action(self, parsed_args):
-        client = self.app.client_manager.mq
+        client = self.app.client_manager.mb
 
         data = client.clusters.get(parsed_args.id)
 
@@ -78,7 +78,7 @@ class CreateClusterCommand(show.ShowOne):
         return parser
 
     def take_action(self, parsed_args):
-        client = self.app.client_manager.mq
+        client = self.app.client_manager.mb
 
         data = client.clusters.create(
             name=parsed_args.name,
@@ -109,7 +109,7 @@ class SetClusterCommand(command.Command):
         return parser
 
     def take_action(self, parsed_args):
-        client = self.app.client_manager.mq
+        client = self.app.client_manager.mb
 
         data = {}
 
@@ -146,6 +146,6 @@ class DeleteClusterCommand(command.Command):
         return parser
 
     def take_action(self, parsed_args):
-        client = self.app.client_manager.mq
+        client = self.app.client_manager.mb
         client.clusters.delete(parsed_args.id)
         LOG.info('Cluster %s was deleted', parsed_args.id)

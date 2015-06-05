@@ -18,10 +18,10 @@ from cueclient import utils
 from openstackclient.common import utils as oscutils
 
 
-DEFAULT_MQ_API_VERSION = '1'
+DEFAULT_MB_API_VERSION = '1'
 
-API_NAME = 'mq'
-API_VERSION_OPTION = 'os_mq_api_version'
+API_NAME = 'mb'
+API_VERSION_OPTION = 'os_mb_api_version'
 API_VERSIONS = {
     '1': 'cueclient.v1.client.Client',
 }
@@ -37,13 +37,13 @@ def make_client(instance):
 def build_option_parser(parser):
     """Hook to add global options."""
     parser.add_argument(
-        '--os-mq-api-version',
-        metavar='<mq-api-version>',
+        '--os-mb-api-version',
+        metavar='<mb-api-version>',
         default=utils.env(
-            'OS_MQ_API_VERSION',
-            default=DEFAULT_MQ_API_VERSION),
-        help='MQ API version, default=' +
-             DEFAULT_MQ_API_VERSION +
-             ' (Env: OS_MQ_API_VERSION)')
+            'OS_MB_API_VERSION',
+            default=DEFAULT_MB_API_VERSION),
+        help='MB API version, default=' +
+             DEFAULT_MB_API_VERSION +
+             ' (Env: OS_MB_API_VERSION)')
 
     return parser

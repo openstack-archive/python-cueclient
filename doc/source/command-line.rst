@@ -46,7 +46,7 @@ Required fields for 'create' : name, network id , flavor and size.
 
 .. code-block:: shell-session
 
-    (openstack) cue cluster create --name cluster_04 --nic 3dd26c0b-03f2-4d2e-ae87-c02d7f33c788 --flavor 2 --size 3
+    (openstack) message-broker cluster create --name cluster_04 --nic 3dd26c0b-03f2-4d2e-ae87-c02d7f33c788 --flavor 2 --size 3
     +-------------+--------------------------------------+
     | Field       | Value                                |
     +-------------+--------------------------------------+
@@ -70,7 +70,7 @@ Required field for 'show' : cluster-id
 .. code-block:: shell-session
 
 
-    (openstack) cue cluster show 06d3c0e4-4972-4ca9-91c1-373b1c74e8e1
+    (openstack) message-broker cluster show 06d3c0e4-4972-4ca9-91c1-373b1c74e8e1
     +-------------+--------------------------------------+
     | Field       | Value                                |
     +-------------+--------------------------------------+
@@ -93,14 +93,14 @@ Required field for 'delete' : cluster-id
 
 .. code-block:: shell-session
 
-    (openstack) cue cluster delete 06d3c0e4-4972-4ca9-91c1-373b1c74e8e1
+    (openstack) message-broker cluster delete 06d3c0e4-4972-4ca9-91c1-373b1c74e8e1
 
 Cluster List
 ------------
 
 .. code-block:: shell-session
 
-    (openstack) cue cluster list
+    (openstack) message-broker cluster list
     +--------------------------------------+-------------+----------+--------+------+
     | id                                   | name        | status   | flavor | size |
     +--------------------------------------+-------------+----------+--------+------+
@@ -114,12 +114,12 @@ Subcommands
 
 Here are the full list of subcommands:
 
-======================= ======================================================
-subcommand              Notes
-======================= ======================================================
-cue cluster create        Create Cluster
-cue cluster delete        Delete Cluster
-cue cluster show          Show Cluster
-cue cluster list          List Clusters
-======================= ======================================================
+==================================   ======================================================
+subcommand                           Notes
+==================================   ======================================================
+message-broker cluster create        Create Cluster
+message-broker cluster delete        Delete Cluster
+message-broker cluster show          Show Cluster
+message-broker cluster list          List Clusters
+==================================   ======================================================
 
