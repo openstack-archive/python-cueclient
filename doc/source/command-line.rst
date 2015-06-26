@@ -51,7 +51,7 @@ Required fields for 'create' : name, network id , flavor and size.
     | Field       | Value                                |
     +-------------+--------------------------------------+
     | created_at  | 2015-02-17T18:25:28+00:00            |
-    | end_points  | []                                   |
+    | endpoints   | []                                   |
     | flavor      | 2                                    |
     | id          | 06d3c0e4-4972-4ca9-91c1-373b1c74e8e1 |
     | name        | cluster_04                           |
@@ -75,7 +75,7 @@ Required field for 'show' : cluster-id
     | Field       | Value                                |
     +-------------+--------------------------------------+
     | created_at  | 2015-02-17T18:25:28+00:00            |
-    | end_points  | []                                   |
+    | endpoints   | []                                   |
     | flavor      | 2                                    |
     | id          | 06d3c0e4-4972-4ca9-91c1-373b1c74e8e1 |
     | name        | cluster_04                           |
