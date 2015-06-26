@@ -30,7 +30,7 @@ class TestListClusters(base.TestCueBase):
 
         result = self.execute(clusters.ListClustersCommand, arglist,
                               verifylist)
-        self.assertEqual(['id', 'name', 'status', 'end_points'], result[0])
+        self.assertEqual(['id', 'name', 'status', 'endpoints'], result[0])
         self.assert_called('GET', '/clusters')
         for cluster in result[1]:
             self.assertEqual(expected[cluster[0]], cluster)
@@ -45,7 +45,7 @@ class TestShowCluster(base.TestCueBase):
         verifylist = []
 
         result = self.execute(clusters.ShowClusterCommand, arglist, verifylist)
-        expected = [('created_at', 'end_points', 'flavor', 'id', 'name',
+        expected = [('created_at', 'endpoints', 'flavor', 'id', 'name',
                      'network_id', 'size', 'status'),
                     (u'2015-01-01T00:00:00+00:00', [], '1',
                      '00000000-0000-0000-0000-000000001234',

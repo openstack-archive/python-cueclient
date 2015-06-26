@@ -38,7 +38,7 @@ class V1(fixtures.Fixture):
             "size": 1,
             "network_id": ["05860da0-e2bd-4315-9cfb-7dd6e9963cd9"],
             "created_at": "2015-01-01T00:00:00+00:00",
-            "end_points": [],
+            "endpoints": [],
             "flavor": "1",
             "status": "ACTIVE",
         }
@@ -49,7 +49,7 @@ class V1(fixtures.Fixture):
             "size": 3,
             "network_id": ["05567na0-f7aa-6820-7afcd-7dd6e9963cd9"],
             "created_at": "2015-01-01T00:00:00+00:00",
-            "end_points": [],
+            "endpoints": [],
             "flavor": "1",
             "status": "BUILDING",
         }
@@ -60,7 +60,7 @@ class V1(fixtures.Fixture):
             "size": 3,
             "network_id": ["05567na0-f7aa-6820-7afcd-7dd6e9963cd9"],
             "created_at": "2015-01-01T00:00:00+00:00",
-            "end_points": [],
+            "endpoints": [],
             "flavor": "1",
             "status": "BUILDING",
         }
