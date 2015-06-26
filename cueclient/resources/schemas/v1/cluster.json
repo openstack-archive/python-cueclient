@@ -34,7 +34,7 @@
           "description": "Date and time of cluster update",
           "format": "date-time"
         },
-        "end_points": {
+        "endpoints": {
           "type": [
             "array",
             "null"
