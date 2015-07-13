@@ -35,7 +35,7 @@ Installing Cue Client from source
 
 ::
 
-   $ git clone https://github.com/stackforge/python-cueclient.git
+   $ git clone https://github.com/openstack/python-cueclient.git
    $ cd python-cueclient
 
 

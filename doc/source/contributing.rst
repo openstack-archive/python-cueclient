@@ -41,7 +41,7 @@ You can use tox to check your code locally by running
   # For tests + flake8
   tox
 
-.. _on GitHub: https://github.com/stackforge/python-cueclient
+.. _on GitHub: https://github.com/openstack/python-cueclient
 .. _Launchpad: https://launchpad.net/python-cueclient
 .. _Gerrit: http://docs.openstack.org/infra/manual/developers.html#development-workflow
 
