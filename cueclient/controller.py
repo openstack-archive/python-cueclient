@@ -15,9 +15,9 @@
 # under the License.
 import abc
 import json
-from urllib import urlencode
 
 import six
+from six.moves.urllib.parse import urlencode
 
 
 @six.add_metaclass(abc.ABCMeta)

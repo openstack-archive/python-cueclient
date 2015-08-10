@@ -1,3 +1,4 @@
+#   Copyright 2015 Hewlett-Packard Development Company, L.P.
 #   Copyright 2012-2013 OpenStack Foundation
 #
 #   Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -55,7 +56,7 @@ def get_item_properties(item, fields, mixed_case_fields=[], formatters={}):
     return tuple(row)
 
 
-def resource_string(*args, **kwargs):
+def resource_filename(*args, **kwargs):
     """Return specified resource as a string"""
     if len(args) == 0:
         raise ValueError()
@@ -73,12 +74,15 @@ def resource_string(*args, **kwargs):
         # 'resource: %s' % resource_path)
         pass
 
-    return pkg_resources.resource_string(package, resource_path)
+    return pkg_resources.resource_filename(package, resource_path)
 
 
 def load_schema(version, name, package=None):
     """Load json schema from resources"""
-    schema_string = resource_string('schemas', version, '%s.json' % name,
-                                    package=package)
+    schema_filename = resource_filename('schemas', version, '%s.json' % name,
+                                        package=package)
 
-    return json.loads(schema_string)
+    with open(schema_filename) as schema_file:
+        schema_json = json.load(schema_file)
+
+    return schema_json
