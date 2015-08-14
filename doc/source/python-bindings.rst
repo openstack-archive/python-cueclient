@@ -14,20 +14,22 @@ the bindings.
 
 .. code-block:: python
 
-   #!/usr/bin/env python
+    #!/usr/bin/env python
 
-   import keystoneclient
-   from cueclient.v1 import client
+    from keystoneclient.auth.identity import v3 as keystone_v3_auth
+    from keystoneclient import session as keystone_session
+    from cueclient.v1 import client
 
-
-   auth = keystoneclient.auth.identity.v2.Password(
-            auth_url="http://example.com:5000/v2.0/",
+    auth = keystone_v3_auth.Password(
+            auth_url="http://example.com:5000/v3",
             username="admin",
             password="password",
-            tenant_name="admin"
+            project_name="admin",
+            project_domain_name="default",
+            user_domain_name="default"
     )
 
-   session = keystoneclient.session.Session(auth=auth)
+    session = keystone_session.Session(auth=auth)
 
     # Create an instance of the client
     cue_client = client.Client(session=session)
@@ -35,7 +37,7 @@ the bindings.
     # Cluster List - returns list of cluster objects
     list_response = cue_client.clusters.list()
 
-   # Iterate the list, printing some useful information
+    # Iterate the list, printing some useful information
     for cluster in list_response:
 
         print "Cluster ID: %s \t Name: %s \t NetworkId: %s \t Flavor: %s \t Size: %s" % \
@@ -58,20 +60,22 @@ Cue supports Keystone authentication.
 Keystone Authentication
 -----------------------
 
-Below is a sample of standard authentication with keystone:
+Below is a sample of standard authentication with keystone v3:
 
 .. code-block:: python
 
-   #!/usr/bin/env python
+    #!/usr/bin/env python
 
-   import keystoneclient
-   from cueclient.v1 import client
+    from keystoneclient.auth.identity import v3 as keystone_v3_auth
+    from keystoneclient import session as keystone_session
 
-   auth = keystoneclient.auth.identity.v2.Password(
-            auth_url="http://example.com:5000/v2.0/",
+    auth = keystone_v3_auth.Password(
+            auth_url="http://example.com:5000/v3",
             username="admin",
             password="password",
-            tenant_name="admin"
+            project_name="admin",
+            project_domain_name="default",
+            user_domain_name="default"
     )
 
 Cue Functions
@@ -82,20 +86,22 @@ Cluster List
 
 .. code-block:: python
 
-   #!/usr/bin/env python
+    #!/usr/bin/env python
 
-    import keystoneclient
+    from keystoneclient.auth.identity import v3 as keystone_v3_auth
+    from keystoneclient import session as keystone_session
     from cueclient.v1 import client
 
-
-    auth = keystoneclient.auth.identity.v2.Password(
-        auth_url="http://192.168.233.171:5000/v2.0/",
-        username="admin",
-        password="password",
-        tenant_name="admin"
+    auth = keystone_v3_auth.Password(
+            auth_url="http://example.com:5000/v3",
+            username="admin",
+            password="password",
+            project_name="admin",
+            project_domain_name="default",
+            user_domain_name="default"
     )
 
-    session = keystoneclient.session.Session(auth=auth)
+    session = keystone_session.Session(auth=auth)
     cue_client = client.Client(session=session)
 
     # Cluster List
@@ -107,20 +113,22 @@ Cluster Show
 
 .. code-block:: python
 
-   #!/usr/bin/env python
+    #!/usr/bin/env python
 
-    import keystoneclient
+    from keystoneclient.auth.identity import v3 as keystone_v3_auth
+    from keystoneclient import session as keystone_session
     from cueclient.v1 import client
 
-
-    auth = keystoneclient.auth.identity.v2.Password(
-        auth_url="http://192.168.233.171:5000/v2.0/",
-        username="admin",
-        password="password",
-        tenant_name="admin"
+    auth = keystone_v3_auth.Password(
+            auth_url="http://example.com:5000/v3",
+            username="admin",
+            password="password",
+            project_name="admin",
+            project_domain_name="default",
+            user_domain_name="default"
     )
 
-    session = keystoneclient.session.Session(auth=auth)
+    session = keystone_session.Session(auth=auth)
     cue_client = client.Client(session=session)
 
     cluster_id = "0a352f9a-8aa8-411e-9d6d-4e6217d70afd"
@@ -134,24 +142,26 @@ Cluster Create
 
 .. code-block:: python
 
-   #!/usr/bin/env python
+    #!/usr/bin/env python
 
-    import keystoneclient
+    from keystoneclient.auth.identity import v3 as keystone_v3_auth
+    from keystoneclient import session as keystone_session
     from cueclient.v1 import client
 
-
-    auth = keystoneclient.auth.identity.v2.Password(
-        auth_url="http://192.168.233.171:5000/v2.0/",
-        username="admin",
-        password="password",
-        tenant_name="admin"
+    auth = keystone_v3_auth.Password(
+            auth_url="http://example.com:5000/v3",
+            username="admin",
+            password="password",
+            project_name="admin",
+            project_domain_name="default",
+            user_domain_name="default"
     )
 
-    session = keystoneclient.session.Session(auth=auth)
+    session = keystone_session.Session(auth=auth)
     cue_client = client.Client(session=session)
 
-   # Cluster create
-   create_response = cue_client.clusters.create(name="test_binding5",
+    # Cluster create
+    create_response = cue_client.clusters.create(name="test_binding5",
                         nic="55555", flavor="1",size="2",volume_size="0")
 
 Cluster Delete
@@ -159,20 +169,22 @@ Cluster Delete
 
 .. code-block:: python
 
-   #!/usr/bin/env python
+    #!/usr/bin/env python
 
-    import keystoneclient
+    from keystoneclient.auth.identity import v3 as keystone_v3_auth
+    from keystoneclient import session as keystone_session
     from cueclient.v1 import client
 
-
-    auth = keystoneclient.auth.identity.v2.Password(
-        auth_url="http://192.168.233.171:5000/v2.0/",
-        username="admin",
-        password="password",
-        tenant_name="admin"
+    auth = keystone_v3_auth.Password(
+            auth_url="http://example.com:5000/v3",
+            username="admin",
+            password="password",
+            project_name="admin",
+            project_domain_name="default",
+            user_domain_name="default"
     )
 
-    session = keystoneclient.session.Session(auth=auth)
+    session = keystone_session.Session(auth=auth)
     cue_client = client.Client(session=session)
 
     delete_id = "dc86d96f-6b37-4e2d-9805-4542450f427d"
