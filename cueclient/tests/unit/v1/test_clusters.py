@@ -23,14 +23,15 @@ class TestListClusters(base.TestCueBase):
         verifylist = []
         expected = {'00000000-0000-0000-0000-000000001234':
                     ('00000000-0000-0000-0000-000000001234',
-                     'test-cluster', 'ACTIVE', []),
+                     'test-cluster', 'ACTIVE', 1, []),
                     '00000000-0000-0000-0000-000000005678':
                     ('00000000-0000-0000-0000-000000005678',
-                     'test-cluster2', 'BUILDING', [])}
+                     'test-cluster2', 'BUILDING', 3, [])}
 
         result = self.execute(clusters.ListClustersCommand, arglist,
                               verifylist)
-        self.assertEqual(['id', 'name', 'status', 'endpoints'], result[0])
+        self.assertEqual(['id', 'name', 'status', 'size', 'endpoints'],
+                         result[0])
         self.assert_called('GET', '/clusters')
         for cluster in result[1]:
             self.assertEqual(expected[cluster[0]], cluster)
