@@ -71,6 +71,7 @@ class TestCreateCluster(base.TestCueBase):
     cluster_network_id = "9d6708ee-ea48-4e78-bef6-b50b48405091"
     cluster_flavor = "1"
     cluster_size = "2"
+    auth = "type=simple,user=rabbitmq,pass=rabbit"
 
     def test_create_cluster(self):
         arglist = ["--name", self.cluster_name,
@@ -82,6 +83,24 @@ class TestCreateCluster(base.TestCueBase):
             ('nic', self.cluster_network_id),
             ('flavor', self.cluster_flavor),
             ('size', self.cluster_size)
+        ]
+
+        self.execute(clusters.CreateClusterCommand, arglist, verifylist)
+        self.assert_called('POST', '/clusters')
+
+    def test_create_cluster_rabbit_auth(self):
+        arglist = ["--name", self.cluster_name,
+                   "--nic", self.cluster_network_id,
+                   "--flavor", self.cluster_flavor,
+                   "--size", self.cluster_size,
+                   "--auth", self.auth,
+                   ]
+        verifylist = [
+            ('name', self.cluster_name),
+            ('nic', self.cluster_network_id),
+            ('flavor', self.cluster_flavor),
+            ('size', self.cluster_size),
+            ('auth', self.auth),
         ]
 
         self.execute(clusters.CreateClusterCommand, arglist, verifylist)
