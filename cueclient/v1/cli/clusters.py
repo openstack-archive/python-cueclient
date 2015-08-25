@@ -73,7 +73,11 @@ class CreateClusterCommand(show.ShowOne):
                             required=True)
         parser.add_argument('--flavor', help="Flavor to use.", required=True)
         parser.add_argument('--size', help="Number of nodes", required=True)
+
         parser.add_argument('--volume_size', help="Volume size")
+        parser.add_argument('--auth_type', help="authentication type")
+        parser.add_argument('--auth_username', help="authentication username")
+        parser.add_argument('--auth_password', help="authentication password")
 
         return parser
 
@@ -85,7 +89,10 @@ class CreateClusterCommand(show.ShowOne):
             nic=parsed_args.nic,
             flavor=parsed_args.flavor,
             size=parsed_args.size,
-            volume_size=parsed_args.volume_size)
+            volume_size=parsed_args.volume_size,
+            auth_type=parsed_args.auth_type,
+            auth_username=parsed_args.auth_username,
+            auth_password=parsed_args.auth_password)
 
         return zip(*sorted(six.iteritems(data)))
 
