@@ -50,7 +50,8 @@ class TestCueBase(testtools.TestCase):
     def execute(self, cmd_class, arglist, verifylist):
         cmd = cmd_class(self.app, argparse.Namespace())
         parsed_args = self.check_parser(cmd, arglist, verifylist)
-        return cmd.take_action(parsed_args)
+        data = cmd.take_action(parsed_args)
+        return data
 
     def assert_called(self, method, path, body=None):
         self.assertEqual(self.requests.last_request.method, method)
