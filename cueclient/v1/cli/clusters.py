@@ -73,19 +73,39 @@ class CreateClusterCommand(show.ShowOne):
                             required=True)
         parser.add_argument('--flavor', help="Flavor to use.", required=True)
         parser.add_argument('--size', help="Number of nodes", required=True)
+
         parser.add_argument('--volume_size', help="Volume size")
+        parser.add_argument('--auth',
+                            metavar="<type=type,user=user,pass=pass>",
+                            help="broker authentication,"
+                                 "type=type,user=user,pass=pass")
 
         return parser
 
     def take_action(self, parsed_args):
         client = self.app.client_manager.mb
 
+        auth_type = username = password = None
+        if parsed_args.auth:
+            for kv_str in parsed_args.auth.split(","):
+                k, v = kv_str.split("=")
+                if 'type' in k:
+                    auth_type = v
+                elif 'user' in k:
+                    username = v
+                elif 'pass' in k:
+                    password = v
+        if not auth_type:
+            auth_type = 'plain'
         data = client.clusters.create(
             name=parsed_args.name,
             nic=parsed_args.nic,
             flavor=parsed_args.flavor,
             size=parsed_args.size,
-            volume_size=parsed_args.volume_size)
+            volume_size=parsed_args.volume_size,
+            auth_type=auth_type,
+            username=username,
+            password=password)
 
         return zip(*sorted(six.iteritems(data)))
 
