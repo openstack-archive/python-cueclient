@@ -22,14 +22,20 @@ Cluster = warlock.model_factory(utils.load_schema('v1', 'cluster'))
 
 class ClusterController(controller.Controller):
     """Cluster Controller to manages operations."""
-    def create(self, name, nic, flavor, size, volume_size):
+    def create(self, name, nic, flavor, size, volume_size, auth_type, username,
+               password):
         """Create Cluster"""
+        auth = {'type': auth_type,
+                'token': {'username': username,
+                          'password': password}}
+
         data = {
             "network_id": nic.split(","),
             "name": name,
             "flavor": flavor,
             "size": size,
-            "volume_size": volume_size
+            "volume_size": volume_size,
+            "authentication": auth,
         }
         url = self.build_url("/clusters")
 
