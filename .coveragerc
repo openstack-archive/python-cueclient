@@ -4,4 +4,4 @@ source = cueclient
 omit = cueclient/tests/*
 
 [report]
-ignore-errors = True
+ignore_errors = True
