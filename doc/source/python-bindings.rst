@@ -162,7 +162,9 @@ Cluster Create
 
     # Cluster create
     create_response = cue_client.clusters.create(name="test_binding5",
-                        nic="55555", flavor="1",size="2",volume_size="0")
+                        nic="55555", flavor="1",size="2",volume_size="0",
+                        auth_type="plain", username="rabbitmq",
+                        password="password")
 
 Cluster Delete
 --------------

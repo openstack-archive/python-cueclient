@@ -46,7 +46,7 @@ Required fields for 'create' : name, network id , flavor and size.
 
 .. code-block:: shell-session
 
-    (openstack) message-broker cluster create --name cluster_04 --nic 3dd26c0b-03f2-4d2e-ae87-c02d7f33c788 --flavor 2 --size 3
+    (openstack) message-broker cluster create --name cluster_04 --nic 3dd26c0b-03f2-4d2e-ae87-c02d7f33c788 --flavor 2 --size 3 --auth type=plain,user=rabbitmq,pass=rabbit
     +-------------+--------------------------------------+
     | Field       | Value                                |
     +-------------+--------------------------------------+
