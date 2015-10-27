@@ -23,13 +23,15 @@ class Client(object):
     def __init__(self, region_name=None, endpoint_type='publicURL',
                  extensions=None, service_type='message-broker',
                  service_name=None, http_log_debug=False, session=None,
-                 auth=None):
+                 auth=None, interface=None):
+        if interface is None:
+           interface = endpoint_type.rstrip('URL')
         self.session = adapter.Adapter(
             session,
             auth=auth,
             region_name=region_name,
             service_type=service_type,
-            interface=endpoint_type.rstrip('URL'),
+            interface=interface,
             user_agent='python-cueclient-%s' % version.version_info,
             version=('1'))
 

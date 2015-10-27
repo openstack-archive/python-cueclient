@@ -31,7 +31,7 @@ def make_client(instance):
     cls = oscutils.get_client_class(
         API_NAME, instance._api_version[API_NAME],
         API_VERSIONS)
-    return cls(session=instance.session)
+    return cls(session=instance.session, interface=instance._interface)
 
 
 def build_option_parser(parser):
