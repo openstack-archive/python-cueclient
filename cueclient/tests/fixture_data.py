@@ -54,6 +54,18 @@ class V1(fixtures.Fixture):
             "status": "BUILDING",
         }
 
+        self.cluster_error = {
+            "name": "test-cluster2",
+            "id": "00000000-0000-0000-0000-000000008765",
+            "size": 3,
+            "network_id": ["05567na0-f7aa-6820-7afcd-7dd6e9963cd9"],
+            "created_at": "2015-01-01T00:00:00+00:00",
+            "endpoints": [],
+            "flavor": "1",
+            "status": "ERROR",
+            "error_detail": "cluster error detailed message",
+        }
+
         self.new_cluster = {
             "name": "new-test-cluster",
             "id": "00000000-0000-0000-0000-000000009012",
@@ -65,7 +77,7 @@ class V1(fixtures.Fixture):
             "status": "BUILDING",
         }
 
-        clusters = [self.cluster_1234, self.cluster_5678]
+        clusters = [self.cluster_1234, self.cluster_5678, self.cluster_error]
 
         self.requests.register_uri('GET', self.url(),
                                    json=clusters,
