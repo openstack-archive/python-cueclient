@@ -57,6 +57,10 @@
             "null"
           ],
           "description": "Cluster volume"
+        },
+        "error_detail": {
+          "type": "string",
+          "description": "Cluster error description"
         }
       },
 
