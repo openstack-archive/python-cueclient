@@ -55,6 +55,22 @@ class TestShowCluster(base.TestCueBase):
         self.assert_called('GET', '/clusters/' + cluster_id)
         self.assertEqual(expected, result)
 
+    def test_show_cluster_error(self):
+        """test cluster show when in error state."""
+        cluster_id = '00000000-0000-0000-0000-000000008765'
+        arglist = [cluster_id]
+        verifylist = []
+
+        result = self.execute(clusters.ShowClusterCommand, arglist, verifylist)
+        expected = [('created_at', 'endpoints', 'flavor', 'id', 'name',
+                     'network_id', 'size', 'status', 'error_detail'),
+                    (u'2015-01-01T00:00:00+00:00', [], '1',
+                     '00000000-0000-0000-0000-000000008765',
+                     'test-cluster', [u'05860da0-e2bd-4315-9cfb-7dd6e9963cd9'],
+                     1, 'ERROR', 'cluster error detailed message')]
+        self.assert_called('GET', '/clusters/' + cluster_id)
+        self.assertEqual(expected, result)
+
     def test_show_cluster_without_id(self):
         """test show cluster without specifying cluster id"""
 
