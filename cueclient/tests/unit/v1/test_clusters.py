@@ -315,4 +315,4 @@ class TestDeleteCluster(base.TestCueBase):
         result = self.execute(clusters.DeleteClusterCommand, arglist,
                               verifylist)
         self.assert_called('DELETE', '/clusters/' + cluster_id)
-        self.assertEqual(None, result)
+        self.assertIsNone(result)
