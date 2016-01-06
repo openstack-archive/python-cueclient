@@ -64,4 +64,4 @@ class TestCueBase(testtools.TestCase):
             if not isinstance(body, six.string_types):
                 # json load if the input body to match against is not a string
                 req_data = jsonutils.loads(req_data)
-            self.assertEqual(req_data, body)
+            self.assertEqual(body, req_data)
