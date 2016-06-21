@@ -11,7 +11,7 @@
 # under the License.
 
 import fixtures
-from keystoneclient import session
+from keystoneauth1 import session
 from six.moves.urllib import parse
 
 from cueclient.v1 import client
