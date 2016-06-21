@@ -13,7 +13,7 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations
 # under the License.
-from keystoneclient import adapter
+from keystoneauth1 import adapter
 
 from cueclient.v1.clusters import ClusterController
 from cueclient import version

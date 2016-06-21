@@ -16,8 +16,8 @@ the bindings.
 
     #!/usr/bin/env python
 
-    from keystoneclient.auth.identity import v3 as keystone_v3_auth
-    from keystoneclient import session as keystone_session
+    from keystoneauth1.identity import v3 as keystone_v3_auth
+    from keystoneauth1 import session as keystone_session
     from cueclient.v1 import client
 
     auth = keystone_v3_auth.Password(
@@ -66,8 +66,8 @@ Below is a sample of standard authentication with keystone v3:
 
     #!/usr/bin/env python
 
-    from keystoneclient.auth.identity import v3 as keystone_v3_auth
-    from keystoneclient import session as keystone_session
+    from keystoneauth1.identity import v3 as keystone_v3_auth
+    from keystoneauth1 import session as keystone_session
 
     auth = keystone_v3_auth.Password(
             auth_url="http://example.com:5000/v3",
@@ -88,8 +88,8 @@ Cluster List
 
     #!/usr/bin/env python
 
-    from keystoneclient.auth.identity import v3 as keystone_v3_auth
-    from keystoneclient import session as keystone_session
+    from keystoneauth1.identity import v3 as keystone_v3_auth
+    from keystoneauth1 import session as keystone_session
     from cueclient.v1 import client
 
     auth = keystone_v3_auth.Password(
@@ -115,8 +115,8 @@ Cluster Show
 
     #!/usr/bin/env python
 
-    from keystoneclient.auth.identity import v3 as keystone_v3_auth
-    from keystoneclient import session as keystone_session
+    from keystoneauth1.identity import v3 as keystone_v3_auth
+    from keystoneauth1 import session as keystone_session
     from cueclient.v1 import client
 
     auth = keystone_v3_auth.Password(
@@ -144,8 +144,8 @@ Cluster Create
 
     #!/usr/bin/env python
 
-    from keystoneclient.auth.identity import v3 as keystone_v3_auth
-    from keystoneclient import session as keystone_session
+    from keystoneauth1.auth.identity import v3 as keystone_v3_auth
+    from keystoneauth1 import session as keystone_session
     from cueclient.v1 import client
 
     auth = keystone_v3_auth.Password(
@@ -173,8 +173,8 @@ Cluster Delete
 
     #!/usr/bin/env python
 
-    from keystoneclient.auth.identity import v3 as keystone_v3_auth
-    from keystoneclient import session as keystone_session
+    from keystoneauth1.identity import v3 as keystone_v3_auth
+    from keystoneauth1 import session as keystone_session
     from cueclient.v1 import client
 
     auth = keystone_v3_auth.Password(
