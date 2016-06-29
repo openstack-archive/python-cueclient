@@ -16,9 +16,7 @@
 
 import logging
 
-from cliff import command
-from cliff import lister
-from cliff import show
+from osc_lib.command import command
 import six
 
 from cueclient import utils
@@ -26,7 +24,7 @@ from cueclient import utils
 LOG = logging.getLogger(__name__)
 
 
-class ListClustersCommand(lister.Lister):
+class ListClustersCommand(command.Lister):
     """List Clusters"""
 
     columns = ['id', 'name', 'status', 'size', 'endpoints']
@@ -45,7 +43,7 @@ class ListClustersCommand(lister.Lister):
         return cols, (utils.get_item_properties(s, cols) for s in data)
 
 
-class ShowClusterCommand(show.ShowOne):
+class ShowClusterCommand(command.ShowOne):
     """Show Cluster"""
     def get_parser(self, prog_name):
         parser = super(ShowClusterCommand, self).get_parser(prog_name)
@@ -62,7 +60,7 @@ class ShowClusterCommand(show.ShowOne):
         return zip(*sorted(six.iteritems(data)))
 
 
-class CreateClusterCommand(show.ShowOne):
+class CreateClusterCommand(command.ShowOne):
     """Create Cluster"""
 
     def get_parser(self, prog_name):
