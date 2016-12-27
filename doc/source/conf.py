@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-#
 # python-cueclient documentation build configuration file, created by
 # sphinx-quickstart on Wed Feb 11 14:55:41 2015.
 #
