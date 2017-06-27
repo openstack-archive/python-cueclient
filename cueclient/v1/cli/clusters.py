@@ -59,7 +59,7 @@ class ShowClusterCommand(show.ShowOne):
 
         data = client.clusters.get(parsed_args.id)
 
-        return zip(*sorted(six.iteritems(data)))
+        return zip(*sorted(data.items()))
 
 
 class CreateClusterCommand(show.ShowOne):
@@ -107,7 +107,7 @@ class CreateClusterCommand(show.ShowOne):
             username=username,
             password=password)
 
-        return zip(*sorted(six.iteritems(data)))
+        return zip(*sorted(data.items()))
 
 
 class SetClusterCommand(command.Command):
@@ -152,7 +152,7 @@ class SetClusterCommand(command.Command):
             data['masters'] = parsed_args.masters
 
         updated = client.clusters.update(parsed_args.id, data)
-        return zip(*sorted(six.iteritems(updated)))
+        return zip(*sorted(updated.items()))
 
 
 class DeleteClusterCommand(command.Command):
