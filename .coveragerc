@@ -1,7 +1,0 @@
-[run]
-branch = True
-source = cueclient
-omit = cueclient/tests/*
-
-[report]
-ignore_errors = True
